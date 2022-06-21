@@ -15,6 +15,11 @@ app.get('/page404', (req, res) => {
     res.send('404 - not found');
 });
 
+app.all('/hello', (req, res, next) => {
+    console.log('ALL handler');
+    next();
+});
+
 app.get('/hello', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
